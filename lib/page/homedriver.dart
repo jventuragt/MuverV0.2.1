@@ -364,7 +364,7 @@ class _HomeDriverPageState extends State<HomeDriverPage> {
                 ),
               ),
               title: Text(
-                _con.driver?.id ?? "",
+                _con.driver?.email ?? "",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text("Basic level"),
