@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_country_picker/flutter_country_picker.dart';
 import 'package:flutter_verification_code_input/flutter_verification_code_input.dart';
+import 'package:move_app_1/providers/auth_provider.dart';
+import 'package:move_app_1/providers/client_provider.dart';
 
-
+import 'package:flutter_country_picker/flutter_country_picker.dart';
 
 import '../uidata.dart';
 import 'letgo.dart';
@@ -16,8 +19,32 @@ class VerifyOTPPage extends StatefulWidget {
   }
 }
 
+AuthProvider _authProvider;
+ClientProvider _clientProvider;
+
 class _PhoneInputPageState extends State<VerifyOTPPage> {
   Country _selected;
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  CollectionReference drivers = FirebaseFirestore.instance.collection('users');
+  bool showLoading = false;
+
+  void register() async {
+    // utils.Snackbar.showSnackbar(
+    //   context, key, "Ingresar Todos los Caracteres");
+    return;
+  }
+
+  //_progressDialog.show();
+
+  /*var clientrData = {
+    "username": username,
+    //"email":  //TODO PONER ID MAIL,
+    "uid": phoneAuthCredential.token,
+    "id": "AuthPhone",
+    //'photoUrl': phoneAuthCredential.verificationId,
+    // "email": phoneAuthCredential.signInMethod,
+  };*/
 
   @override
   void initState() {
@@ -30,7 +57,6 @@ class _PhoneInputPageState extends State<VerifyOTPPage> {
   }
 
   Widget _buildPageContent(BuildContext context) {
-
     return Scaffold(
       body: Container(
           padding: EdgeInsets.all(20.0),
@@ -40,7 +66,6 @@ class _PhoneInputPageState extends State<VerifyOTPPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-
                   Text(
                     "Verifica tu numero de telefono",
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),

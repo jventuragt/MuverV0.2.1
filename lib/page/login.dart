@@ -51,10 +51,10 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.end,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Padding(
+            /* Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: Text("O conectate con tu cuenta:"),
-            ),
+            ),*/
             SizedBox(
               width: double.infinity,
               height: 40,
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                 label: Expanded(
                   child: Center(
                     child: Text(
-                      "Conectate  con Facebook",
+                      "Sign in with Facebook  !!PENDIENTE!!",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                 label: Expanded(
                   child: Center(
                     child: Text(
-                      "Conectate con tu Telefono",
+                      "Sign in with Phone  !!PENDIENTE!!",
                       style: TextStyle(color: UIData.PrimaryColor),
                     ),
                   ),
@@ -132,8 +132,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8, top: 30),
-                    child: Text("EMAIL", style: TextStyle(color: Colors.grey)),
+                    child: Text("", style: TextStyle(color: Colors.grey)),
                   ),
+
                   /*TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
@@ -201,24 +202,39 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                       width: double.infinity,
                       height: 50,
-                      child: FlatButton(
+                      child: MaterialButton(
                         color: UIData.PrimaryColor,
                         textColor: Colors.white,
                         disabledColor: Colors.grey,
                         disabledTextColor: Colors.black,
                         padding: EdgeInsets.all(8.0),
-                        splashColor: Colors.blueAccent,
-                        onPressed: () async {
-                          GoogleSignInService.signInwhithGoogle();
-                          Navigator.of(context).pushReplacement(
-                              new MaterialPageRoute(builder: (context) {
-                            return new LetGoPage();
-                          }));
-                        },
-                        child: Text(
-                          "LOG IN",
-                          style: TextStyle(fontSize: 20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
                         ),
+                        splashColor: Colors.blueAccent,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.google,
+                                color: Colors.white,
+                              ),
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    "Sign in with Google",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 17),
+                                  ),
+                                ),
+                              ),
+                            ]),
+                        onPressed: () {
+                         signInWithGoogle(context);
+                          
+                          
+                         
+                        },
                       )),
                   SizedBox(
                     height: 30,

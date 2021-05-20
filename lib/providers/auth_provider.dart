@@ -7,6 +7,10 @@ class AuthProvider {
     _firebaseAuth = FirebaseAuth.instance;
   }
 
+  User getUser([String s]) {
+    return _firebaseAuth.currentUser;
+  }
+
   Future<bool> login(String email, String password, String telefono) async {
     String errorMessage;
 
@@ -26,5 +30,12 @@ class AuthProvider {
       return Future.error(errorMessage);
     }
     return true;
+  }
+
+  Future<bool> register(String email, String password) async {
+    UserCredential user = await _firebaseAuth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 }

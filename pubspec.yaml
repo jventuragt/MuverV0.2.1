@@ -33,11 +33,13 @@ dependencies:
   flutter_rating_bar: ^3.0.0
   rflutter_alert: ^1.0.3
   shared_preferences: any
+  flutter_google_places: ^0.2.8
   font_awesome_flutter: ^8.5.0
   flutter_country_picker: ^0.1.4
+  geoflutterfire: ^2.2.2
   google_maps_flutter: ^0.5.21+7
   location: ^2.3.5
-  geolocator: ^5.1.4+1
+  geolocator: ^6.1.13
   google_map_polyline: ^0.2.0+1
   provider: ^5.0.0
   flutter_launcher_icons: "^0.7.3"
@@ -45,6 +47,10 @@ dependencies:
   firebase_core: ^0.7.0
   cloud_firestore: ^0.16.0
   google_sign_in: ^4.5.9
+  permission_handler: ^5.1.0+1
+  dio: ^3.0.10
+  animate_do: ^2.0.0
+  flutter_bloc: ^7.0.0
   flutter_verification_code_input:
     git:
       url: git://github.com/tiny-express/flutter_verification_code_input

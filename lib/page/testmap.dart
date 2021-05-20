@@ -18,11 +18,11 @@ class GeolocationExampleState extends State {
   Geolocator _geolocator;
   Position _position;
 
-  void checkPermission() {
+  /*void checkPermission() {
     _geolocator.checkGeolocationPermissionStatus().then((status) { print('status: $status'); });
     _geolocator.checkGeolocationPermissionStatus(locationPermission: GeolocationPermission.locationAlways).then((status) { print('always status: $status'); });
     _geolocator.checkGeolocationPermissionStatus(locationPermission: GeolocationPermission.locationWhenInUse)..then((status) { print('whenInUse status: $status'); });
-  }
+  }*/
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class GeolocationExampleState extends State {
     checkPermission();
     //    updateLocation();
 
-    StreamSubscription positionStream = _geolocator.getPositionStream(locationOptions).listen(
+    StreamSubscription positionStream = Geolocator.getPositionStream().listen(
             (Position position) {
           _position = position;
         });
@@ -42,7 +42,7 @@ class GeolocationExampleState extends State {
 
   void updateLocation() async {
     try {
-      Position newPosition = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
+      Position newPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
           .timeout(new Duration(seconds: 5));
 
       setState(() {

@@ -105,6 +105,16 @@ class _PhoneInputPageState extends State<PhoneInputPage> {
                               return new VerifyOTPPage();
                             }));
                           },
+
+
+
+
+
+
+
+
+
+                          
                           child: Text(
                             "CONTINUA",
                             style: TextStyle(fontSize: 20.0),
